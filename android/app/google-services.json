@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "460557003938",
+    "project_id": "planlarim-38c11",
+    "storage_bucket": "planlarim-38c11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460557003938:android:fa41dd27fadfc7ed0fbbfb",
+        "android_client_info": {
+          "package_name": "com.example.planlarim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460557003938-44slsfcurfncikm6k1vu6hsj6mhr5pr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRK78T_c54A_5qS7cFRfEnXyl6DibAMds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460557003938-44slsfcurfncikm6k1vu6hsj6mhr5pr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
