@@ -43,6 +43,7 @@ class _DetailState extends State<Detail> {
       appBar: AppBar(
         title: Text('Add Post'),
         centerTitle: true,
+        backgroundColor: Colors.deepOrange,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -76,9 +77,12 @@ class _DetailState extends State<Detail> {
               Container(
                 width: double.infinity,
                 height: 45,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(22),
+                  color: Colors.deepOrange,
+                ),
                 child: FlatButton(
                   onPressed: _addPost,
-                  color: Colors.blue,
                   child: Text('Add',style: TextStyle(color: Colors.white),),
                 ),
               ),

@@ -94,14 +94,14 @@ class _HomeState extends State<Home> {
             height: 10,
           ),
           Text(
-            post.name,
+            post.content,
             style: TextStyle(color: Colors.black, fontSize: 20),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
-            post.content,
+            post.name,
             style: TextStyle(color: Colors.black, fontSize: 16),
           ),
         ],

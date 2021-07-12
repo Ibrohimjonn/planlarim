@@ -85,8 +85,11 @@ class _SignUpState extends State<SignUp> {
                 Container(
                   width: double.infinity,
                   height: 45,
-                  child: FlatButton(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(22),
                     color: Colors.deepOrange,
+                  ),
+                  child: FlatButton(
                     onPressed: _doSignUp,
                     child: Text('Sign Up',style: TextStyle(color: Colors.white),),
                   ),
@@ -101,7 +104,7 @@ class _SignUpState extends State<SignUp> {
                       onTap: (){
                         Navigator.pushNamed(context, SignIn.id);
                       },
-                      child: Text('Sign In',style: TextStyle(color: Colors.blue),),
+                      child: Text('Sign In',style: TextStyle(color: Colors.blue,fontSize: 18),),
                     ),
                   ],
                 ),
