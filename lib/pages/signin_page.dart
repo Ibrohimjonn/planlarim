@@ -62,6 +62,7 @@ class _SignInState extends State<SignIn> {
                 SizedBox(height: 20,),
                 TextField(
                   controller: passwordController,
+                  obscureText: true,
                   decoration: InputDecoration(
                       hintText: "Password"
                   ),
