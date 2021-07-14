@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var isLoading = false;
   List<Post> items = new List();
 
   @override
@@ -35,6 +36,9 @@ class _HomeState extends State<Home> {
   }
 
   _apiGetPost() async{
+    setState(() {
+      isLoading = true;
+    });
     var id = await Prefs.loadUserId();
     RTDBService.getPosts(id).then((posts) => {
       _respPosts(posts),
@@ -43,6 +47,7 @@ class _HomeState extends State<Home> {
 
   _respPosts(List<Post> posts){
     setState(() {
+      isLoading = false;
       items = posts;
     });
   }
@@ -66,11 +71,18 @@ class _HomeState extends State<Home> {
         ],
         backgroundColor: Colors.deepOrange,
       ),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (ctx, i) {
-          return itemOfList(items[i]);
-        },
+      body: Stack(
+        children: [
+          ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (ctx, i) {
+              return itemOfList(items[i]);
+            },
+          ),
+          isLoading ? Center(
+            child: CircularProgressIndicator(),
+          ): SizedBox.shrink()
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _openDetail,
@@ -86,23 +98,41 @@ class _HomeState extends State<Home> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            post.title,
-            style: TextStyle(color: Colors.black, fontSize: 20),
+          Container(
+            height: 220,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: post.img_url != null ?
+            Image.network(post.img_url,fit: BoxFit.cover,):
+            Image.asset('assets/images/default.png',fit: BoxFit.cover,),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            post.content,
-            style: TextStyle(color: Colors.black, fontSize: 20),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            post.name,
-            style: TextStyle(color: Colors.black, fontSize: 16),
+
+          SizedBox(width: 15,),
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                post.name,
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                post.title,
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                post.content,
+                style: TextStyle(color: Colors.black, fontSize: 16),
+              ),
+            ],
           ),
         ],
       ),
