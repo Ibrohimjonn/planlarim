@@ -61,13 +61,25 @@ class _SignUpState extends State<SignUp> {
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
-                      hintText: "Fullname"
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28.0),
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrange,width: 1.5),
+                      ),
+                      hintText: "Full name"
                   ),
                 ),
                 SizedBox(height: 20,),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28.0),
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrange,width: 1.5),
+                      ),
                       hintText: "Email"
                   ),
                 ),
@@ -76,38 +88,40 @@ class _SignUpState extends State<SignUp> {
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                      hintText: "Password"
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28.0),
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrange,width: 1.5),
+                      ),
+                      hintText: "Password",
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    color: Colors.deepOrange,
-                  ),
-                  child: FlatButton(
-                    onPressed: _doSignUp,
-                    child: Text('Sign Up',style: TextStyle(color: Colors.white),),
-                  ),
-                ),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text("Already have an account",style: TextStyle(color: Colors.blue),),
-                    SizedBox(width: 12,),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, SignIn.id);
-                      },
-                      child: Text('Sign In',style: TextStyle(color: Colors.blue,fontSize: 18),),
+                    margin: EdgeInsets.only(left: 40,right: 40),
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(22),topRight: Radius.circular(22)),
+                      color: Colors.deepOrange,
                     ),
-                  ],
-                ),
+                    child: FlatButton(
+                      onPressed: _doSignUp,
+                      child: Text('Sign Up',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                    ),
+                  ),
+                SizedBox(height: 25,),
+
+                Text('Already Have an Account',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
+                SizedBox(height: 12,),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, SignIn.id);
+                  },
+                    child: Text('Sign In',style: TextStyle(color: Colors.deepOrange,fontSize: 24,fontWeight: FontWeight.bold),)),
               ],
             ),
           ),

@@ -56,6 +56,12 @@ class _SignInState extends State<SignIn> {
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrange,width: 1.5),
+                      ),
                       hintText: "Email"
                   ),
                 ),
@@ -64,6 +70,12 @@ class _SignInState extends State<SignIn> {
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.deepOrange,width: 1.5),
+                      ),
                       hintText: "Password"
                   ),
                 ),
@@ -71,31 +83,26 @@ class _SignInState extends State<SignIn> {
                   height: 20,
                 ),
                 Container(
+                  margin: EdgeInsets.only(left: 40,right: 40),
                   width: double.infinity,
-                  height: 45,
+                  height: 50,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(22),topRight: Radius.circular(22)),
                     color: Colors.deepOrange,
                   ),
                   child: FlatButton(
                     onPressed: _doSignIn,
-                    child: Text('Sign In',style: TextStyle(color: Colors.white),),
+                    child: Text('Sign Up',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                   ),
                 ),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text("Don't have an account",style: TextStyle(color: Colors.blue),),
-                    SizedBox(width: 12,),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, SignUp.id);
-                      },
-                      child: Text('Sign Up',style: TextStyle(color: Colors.blue,fontSize: 18),),
-                    ),
-                  ],
-                ),
+                SizedBox(height: 25,),
+                Text("Don't Have an Account",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
+                SizedBox(height: 12,),
+                GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, SignUp.id);
+                    },
+                    child: Text('Sign Up',style: TextStyle(color: Colors.deepOrange,fontSize: 24,fontWeight: FontWeight.bold),)),
               ],
             ),
           ),
